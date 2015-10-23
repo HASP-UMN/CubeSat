@@ -20,6 +20,7 @@
 #   
 #   References:
 #     > http://paginas.fe.up.pt/~ee97054/Link%20Budget.pdf
+#     > http://cubesat.wdfiles.com/local--files/link-budget/PLM-COMS-DSRICourse-141-1.pdf
 
 
 ##  Module Import
@@ -32,10 +33,11 @@ import numpy as np
 
 #   Relevant fundamental constants.  DO NOT MODIFY!
 c = 299792458       # m/s - speed of light
+kb= 1.3806488e-23   # J/K - Boltzmann constant
 
 #   Orbital parameters
 altitude = 4.1e5    # m     # GUESS! - Based on ISS altitude
-r = altitude        # distance to reciever. CHANGE TO FUNCTION WITH MORE INFO
+r = 1e6             # distance to reciever. CHANGE TO FUNCTION WITH MORE INFO
 
 #   Communication System parameters
 gain = 1            # Placeholder value
