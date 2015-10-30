@@ -2,7 +2,7 @@ clear all
 % Note that it already applies the negtive 10 volts shift
 % edit to where your files are stored
 %this must also be in your matlab path
-place_of_files = 'C:\Users\Jacob\Desktop\School stuff\AEM 4602\data_directory';
+place_of_files = 'C:\Users\Jake\Desktop\all_files-Hotwire';
 
 % Number of files that you have 
 number_of_files = 257;
@@ -86,7 +86,7 @@ AOA = AOA';
 velocity = velocity';
 AVG = AVG';
 
-if(isnan(AOA(1)||isnan(X(1)) || isnan(Y(1))|| isnan(Z(1)) || isnan(velocity(1)))
+if(isnan(AOA(1)||isnan(X(1)) || isnan(Y(1))|| isnan(Z(1)) || isnan(velocity(1))))
    fprintf('Warning something was Not a Number\n');
    fprintf('check which variable was (X,Y,Z,AOA,velocity)\n');
    fprintf('then use celldisp(dat) to see where the actual data is\n');
