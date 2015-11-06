@@ -1,0 +1,3 @@
+A_Panel = 0.98m * 0.762m
+Moment_Arm = 0.30m
+F_Solar_Wind = 6*10^-9 N/m^2
