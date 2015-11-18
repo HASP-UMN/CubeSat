@@ -1,0 +1,115 @@
+# Cubesat Communications Operations
+
+# Assumptions: data already in part-files, checksums precomputed
+
+# Notes:	LISTEN timeout set to 10 seconds.  If .timeout = true, goto 002
+#		SEND includes cubesat id to make sure ground station is not recieving stray signals
+
+~~~
+
+000
+
+LISTEN for hail signal
+
+SEND current position
+SEND onboard time
+SEND number of files to transfer
+
+goto 001
+
+~~~
+
+001 #Listen for instructions
+
+LISTEN for .ground_command
+
+if .transfer == true
+	delete queued file
+	delete queued checksum
+	set .transfer = false
+	queue next file
+
+EXECUTE .ground_command:
+	'goodbye' goto 002
+	'transfer queued file' goto 003
+	'delete queued file' goto 004
+	'delete all data files' goto 005
+	'transfer log file' goto 006
+	'delete log file' goto 007
+	'diagnostics' goto 008
+	# WHAT OTHER COMMANDS? GET INFO FROM OTHER SUB-TEAMS!!!
+
+~~~
+
+002 #.timeout == true or 'goodbye'
+
+SEND goodbye signal
+
+goto 000
+
+~~~
+
+003 #'transfer queued file'
+
+SEND queued file
+
+LISTEN for checksum
+
+if checksum matches
+	SEND success signal
+	set .transfer = true
+else
+	SEND fail signal
+
+append communication record to log file
+
+goto 001
+
+~~~
+
+004 #'delete queued file'
+
+set .transfer = true
+
+goto 001
+
+~~~
+
+005 #'delete all data files'
+
+delete all data files
+delete all checksums
+
+goto 001
+
+~~~
+
+006 #'transfer log file'
+
+SEND log file
+
+goto 001
+
+~~~
+
+007 #'delete log file'
+
+delete log file
+
+goto 001
+
+~~~
+
+008 #'diagnostics'
+
+generate diagnostics file
+#include the following in the diagnostics file
+#	- current location
+#	- on-board time
+#	- WHAT ELSE NEEDS TO BE SENT?  GET INFO FROM OTHER SUB-TEAMS!!!
+
+SEND diagnostics file
+
+delete diagnostics file
+
+goto 001

@@ -1,0 +1,8 @@
+# Ground Station Operations
+
+# Notes:	Send hails when cubesat in estimated window
+# 		Estimate amount of window time remaining to determine if file can be sent
+#		Use cubesat location information to update future window estimations
+#		Run the same checksum program as on-board cubesat (duh!)
+
+~~~

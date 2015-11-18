@@ -1,0 +1,7 @@
+# Directives for managing and storing data.
+
+# Notes:	get data from detectors
+#		create 128 kB part files
+#		generate and save checksum for each part
+
+~~~
