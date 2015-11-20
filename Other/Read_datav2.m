@@ -2,7 +2,7 @@ clear all
 % Note that it already applies the negtive 10 volts shift
 % edit to where your files are stored
 %this must also be in your matlab path
-place_of_files = 'C:\Users\Jake\Desktop\all_files-Hotwire';
+place_of_files = 'C:\Users\Jacob\Desktop\School stuff\AEM 4602\data_directory';
 
 % Number of files that you have 
 number_of_files = 257;
