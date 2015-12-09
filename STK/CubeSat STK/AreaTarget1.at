@@ -1,0 +1,92 @@
+stk.v.10.0
+WrittenBy    STK_v10.1.3
+
+BEGIN AreaTarget
+
+Name        AreaTarget1
+
+	BEGIN CentroidPosition
+
+		CentralBody            Earth
+		AutoCentroid           Off
+		EcfLatitude            0.000000e+000
+		EcfLongitude           0.000000e+000
+		EcfAltitude            0.000000e+000
+		UseTerrainInfo         Off
+		DisplayCoords          Cylindrical
+
+		AreaType               Pattern
+		AreaValue          0.00000000000000e+000
+		NumberOfPolygonPts     3
+
+		BEGIN PolygonPoints
+
+			4.00254700000000e+001	-1.05273100000000e+002	0.00000000000000e+000
+			4.00254700000000e+001	-1.05273100000000e+002	0.00000000000000e+000
+			4.00254700000000e+001	-1.05273100000000e+002	0.00000000000000e+000
+
+		END PolygonPoints
+
+        BoundaryType           GreatArc
+        Granularity            0.008727
+
+	END CentroidPosition
+
+BEGIN Extensions
+    
+    BEGIN Graphics
+
+            BEGIN Attributes
+
+                MarkerColor             #ff00ff
+                PolygonColor            #ff00ff
+                LabelColor              #ff00ff
+                LineStyle               0
+                LineWidth               1.0
+                FillTranslucency        0.500000
+                MarkerStyle             0
+                FontStyle               0
+
+            END Attributes
+
+            BEGIN Graphics
+
+                ShowGfx                 Off
+                Inherit                 On
+                ShowCentroid            On
+                ShowBoundaryPts         Off
+                ShowLabel               On
+                Filled                  Off
+                SymmetricFill           Off
+                ShowBoundingRect        Off
+
+            END Graphics
+
+        BEGIN DisplayTimes
+            DisplayType	AlwaysOn
+        END DisplayTimes
+    END Graphics
+    
+    BEGIN ExternData
+    END ExternData
+    
+    BEGIN ADFFileData
+    END ADFFileData
+    
+    BEGIN AccessConstraints
+		LineOfSight   IncludeIntervals 
+    END AccessConstraints
+    
+    BEGIN Desc
+    END Desc
+    
+    BEGIN Crdn
+    END Crdn
+    
+    BEGIN VO
+    END VO
+
+END Extensions
+
+END AreaTarget
+
